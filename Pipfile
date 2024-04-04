@@ -5,6 +5,13 @@ name = "pypi"
 
 [packages]
 pypdf = "*"
+pytest = "*"
+geopy = "*"
+openmeteo-requests = "*"
+requests-cache = "*"
+retry-requests = "*"
+numpy = "*"
+pandas = "*"
 
 [dev-packages]
 
