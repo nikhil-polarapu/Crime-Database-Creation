@@ -1,9 +1,11 @@
 import argparse
-import src.assignment1_helper as src
+import src.assignment2_helper as src
 
 def main(url):
     # Download data
-    incident_data = src.fetchincidents(url)
+    incident_data = []
+    for url in urls:
+        incident_data.append(src.fetchincidents(url))
 
     # Extract data
     incidents = src.extractincidents(incident_data)
@@ -12,10 +14,10 @@ def main(url):
     db = src.createdb()
 	
     # Insert data
-    src.populatedb(db, incidents)
+    src.populatedb(incidents)
 	
     # Print incident counts
-    src.status(db)
+    src.status()
 
 if(__name__ == '__main__'):
     parser = argparse.ArgumentParser()
@@ -23,9 +25,11 @@ if(__name__ == '__main__'):
                          help="CSV file that contains the URLs.")
 
     args = parser.parse_args()
+    urls = []
     if(args.urls):
         with open(args.urls, 'r') as f:
             for url in f:
                 url = url.strip('\n')
                 if(url):
-                    main(url)
+                    urls.append(url)
+        main(urls)
