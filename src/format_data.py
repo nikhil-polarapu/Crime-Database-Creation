@@ -2,7 +2,11 @@ from datetime import datetime
 import pandas as pd
 
 def dayOfWeek(date):
-    return datetime.strptime(date, '%m/%d/%Y').weekday()+2
+    day = (datetime.strptime(date, '%m/%d/%Y').weekday()+2)
+    if(day == 7):
+        return day
+    else:
+        return day%7
 
 def hourOfDay(time):
     return datetime.strptime(time, '%H:%M').hour
@@ -16,13 +20,6 @@ def rankData(df, column, to_name):
     sorted_values = counts.sort_values(ascending=False).index
     rankings = {}
     rank = 1
-    # tie_count = 0
-    # for val in sorted_values:
-    #     if tie_count != counts[val]:
-    #         rank += tie_count
-    #         tie_count = counts[val]
-    #     rankings[val] = rank
-    # df[to_name] = df[column].map(rankings)
     for location in sorted_values:
         count = counts[location]
         if count not in rankings:

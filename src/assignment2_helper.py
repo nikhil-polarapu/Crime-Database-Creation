@@ -20,7 +20,7 @@ def fetchincidents(url):
 
 # Function to extract tabular data from the result of fetchincidents
 def extractincidents(data):
-
+    np = 0
     row_list = []
     input_list = []
     for datum in data:
@@ -62,7 +62,7 @@ def extractincidents(data):
             output.append(hour) # Time of Day
             output.append(time) # Time with minutes
             date = fd.changeDateFormat(date)
-            line = line.replace(datetime_result, '')
+            line = line.replace(datetime_result, '').strip()
             
         # Extracting incident number
         incident_number_pattern = r'\d{4}-\d+'
@@ -71,7 +71,7 @@ def extractincidents(data):
         if(incident_number_match):
             incident_number_result = incident_number_match.group()
             output.append(incident_number_result) # Incident Number
-            line = line.replace(incident_number_result, '')
+            line = line.replace(incident_number_result, '').strip()
 
         # Extracting location, nature and incident_ori
         if(line):
@@ -88,7 +88,9 @@ def extractincidents(data):
                 incident_ori = remaining_line[2]
                 # Getting WMO Code and side of town
                 if(latitude and longitude):
-                    weather_code = int(getWeather.get_weather_hour(latitude, longitude, date, hour))
+                    weather_code = getWeather.get_weather_hour(latitude, longitude, date, hour)
+                    if(weather_code != None):
+                        weather_code = int(weather_code)
                     side_of_town = getLocation.get_direction(latitude, longitude)
                 else:
                     weather_code = None
@@ -106,10 +108,10 @@ def extractincidents(data):
             else:
                 if(remaining_line[0].startswith('OK')):
                     output.append('') # Location
-                    output.append('') # Nature
-                    output.append(remaining_line[0]) # Incident ORI
                     output.append('') # Weather
                     output.append('') # Side of Town
+                    output.append('') # Nature
+                    output.append(remaining_line[0]) # Incident ORI
         
         if(not (len(output) < 5)):
             row_list.append(output)
@@ -185,3 +187,4 @@ def status():
     pd.set_option('display.max_rows', None)
     pd.set_option('display.max_columns', None)
     df.to_csv(sys.stdout, sep='\t', index=False)
+    return df

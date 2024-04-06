@@ -20,5 +20,4 @@ def get_weather_code(latitude, longitude, date):
 
 def get_weather_hour(latitude, longitude, date, hour):
     weather_data = get_weather_code(latitude, longitude, date)
-    #print(weather_data['hourly']['weather_code'][hour])
     return weather_data['hourly']['weather_code'][hour]

@@ -49,7 +49,7 @@ This data will be printed to stdout in tab-separated form.
 - pipenv run python assignment2.py --urls files.csv2024-02-01_daily_incident_summary.pdf
 - pipenv run python -m pytest
 
-![DE Assignment2 Demo](/DE%20Assignment0%20Demo.gif)
+![DE Assignment2 Demo](/DE%20Assignment2%20Demo.gif)
 
 
 ## Functions
@@ -120,11 +120,16 @@ If any page does not follow the above-mentioned assumptions then bugs related to
 
 - test_fetchincidents_output( ) - Testcase to check if data is fetched properly from the URL.
 - test_fetchincidents_invalid_url( ) - Testcase to check if error occurs when wrong URL is given.
-- test_extractincidents_heading( ) - Testcase to check if page heading is excluded in the output.
-- test_extractincidents_table_header( ) - Testcase to check if table headers are excluded in the output.
-- test_extractincidents_empty_nature( ) - Testcase to check if empty nature values are not removed from the data.
+- test_extractincidents( ) - Testcase to check if correct incidents are extracted
 - test_createdb_check_file( ) - Testcase to check if the database file is created.
 - test_populatedb_check_data( ) - Testcase to check if a single row is populated correctly.
 - test_populate_db_multiple_rows( ) - Testcase to check if multiple rows are populated correctly.
 - test_status_empty_nature( ) - Testcase to check if empty nature count is displayed.
-- test_status_count( ) - Testcase to check if multiple nature count is displayed.
+- test_status( ) - Testcase to check if correct dataframe is created.
+- test_check_day( ) - Testcase to check if correct day is extracted.
+- test_check_hour( ) - Testcase to check if correct hour is extracted.
+- test_check_change_format( ) - Testcase to check if correct hour is extracted.
+- test_check_ranking( ) - Testcase to check if ranking is done correctly.
+- test_location( ) - Testcase to check if correct coordinates are returned.
+- test_direction( ) - Testcase to check if correct direction is returned.
+- test_weather_code( ) - Testcase to check if correct weather code is returned.

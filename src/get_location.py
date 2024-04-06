@@ -18,36 +18,6 @@ def get_location(address):
     except Exception as e:
         return None, None
 
-# def get_direction(latitude, longitude):
-#     # Calculate the differences in latitude and longitude
-#     ref_latitude = 35.220833
-#     ref_longitude = -97.443611
-#     delta_lat = latitude - ref_latitude
-#     delta_lon = longitude - ref_longitude
-
-#     # Determine the direction
-#     if delta_lat > 0:
-#         if delta_lon > 0:
-#             return "NE"
-#         elif delta_lon < 0:
-#             return "NW"
-#         else:
-#             return "N"
-#     elif delta_lat < 0:
-#         if delta_lon > 0:
-#             return "SE"
-#         elif delta_lon < 0:
-#             return "SW"
-#         else:
-#             return "S"
-#     else:
-#         if delta_lon > 0:
-#             return "E"
-#         elif delta_lon < 0:
-#             return "W"
-#         else:
-#             return "Same location"
-
 def get_direction(latitude, longitude):
     ref_latitude = 35.220833
     ref_longitude = -97.443611
@@ -84,7 +54,6 @@ def get_direction(latitude, longitude):
     # Determine the direction based on the angle
     for direction, (lower, upper) in directions.items():
         if lower <= angle_deg < upper:
-            print(latitude, longitude, direction)
             return direction
     
     # If angle doesn't fall into any defined direction, return None
