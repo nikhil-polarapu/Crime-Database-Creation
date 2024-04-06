@@ -1,7 +1,7 @@
 # cis6930sp24 -- Assignment2
 
-Name: Nikhil Polarapu
-UFID: 16049519
+Name: Nikhil Polarapu \
+UFID: 16049519 \
 Email: spolarapu@ufl.edu
 
 # Assignment Description
