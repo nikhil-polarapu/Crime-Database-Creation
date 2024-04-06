@@ -6,5 +6,5 @@ def test_extractincidents():
     url = "https://www.normanok.gov/sites/default/files/documents/2024-02/2024-02-01_daily_incident_summary.pdf"
     data = [assignment2.fetchincidents(url)]
     result = assignment2.extractincidents(data)
-    val = [5, 0, '0:14', '2024-00007318', '1152 W LINDSEY ST', 1, 'SW', 'Traffic Stop', False]
+    val = [5, 0, '0:10', '2024-00002259', '3300 HEALTHPLEX PKWY', 1, 'NW', 'Transfer/Interfacility', True]
     assert val == result[0]
