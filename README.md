@@ -1,12 +1,8 @@
-# cis6930sp24 -- Assignment2
+# Crime Database Creation
 
-Name: Nikhil Polarapu \
-UFID: 16049519 \
-Email: spolarapu@ufl.edu
+# Project Description
 
-# Assignment Description
-
-In this assignment we write a program that goes through the pdf file of Norman Police Department that has the incidents, arrests and other activities. The program reads the tabular data, cleans it and converts it into a list-of-lists, each list representing a row of the table. Using this data we create an sqlite database with a table called incidents that has the following columns.
+In this project we write a program that goes through the pdf file of Norman Police Department that has the incidents, arrests and other activities. The program reads the tabular data, cleans it and converts it into a list-of-lists, each list representing a row of the table. Using this data we create an sqlite database with a table called incidents that has the following columns.
 
 In assignment 0 we wrote a progrma to extract incident summary data from Norman police department website. This data has the following columns 
 
